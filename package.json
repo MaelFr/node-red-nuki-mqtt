@@ -19,5 +19,8 @@
       "nuki-mqtt-device": "device/device.js",
       "nuki-mqtt-lock-action": "lock-action/lock-action.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
