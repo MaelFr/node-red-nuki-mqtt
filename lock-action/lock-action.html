@@ -1,0 +1,90 @@
+<script type="text/html" data-template-name="nuki-mqtt-lock-action">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+    <input type="text" id="node-input-name" placeholder="Name" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-device"><i class="fa fa-tag"></i>Device</label>
+    <input type="text" id="node-input-device" placeholder="Device" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-action"><i class="fa fa-tag"></i>Action</label>
+    <input type="text" id="node-input-action" placeholder="Action" />
+  </div>
+</script>
+
+<!-- prettier-ignore -->
+<script type="text/markdown" data-help-name="nuki-mqtt-lock-action">
+A node to control your Nuki device through MQTT.
+
+### Inputs
+
+: payload (string) : the action to publish.
+
+### Details
+
+The action can be configured in the node or, if left blank, can be set by `msg.payload`.  
+Here's an example of the **msg** input:
+
+```
+{
+  payload: "LOCK"
+}
+```
+
+Payload may be one of the following:
+
+- UNLOCK
+- LOCK
+- UNLATCH
+- LOCK_N_GO
+- LOCK_N_GO_WITH_UNLATCH
+- FULL_LOCK
+
+### References
+
+- [MQTT API Specification v1.4](https://developer.nuki.io/uploads/short-url/fcR2ntjSFMz3oHUMrIjYSU3g0O4.pdf)
+
+</script>
+
+<script type="text/javascript">
+  (function () {
+    RED.nodes.registerType("nuki-mqtt-lock-action", {
+      category: "nuki",
+      paletteLabel: "MQTT Lock Action",
+      color: "#d8bfd8",
+      defaults: {
+        name: { value: "" },
+        device: { type: "nuki-mqtt-device", required: true },
+        action: { value: "" },
+      },
+      inputs: 1,
+      icon: "bridge.svg",
+      align: "right",
+      label: function () {
+        return this.name || "Nuki MQTT Lock Action";
+      },
+      oneditprepare: function () {
+        var node = this;
+        $("#node-input-action").typedInput({
+          types: [
+            {
+              value: "action",
+              options: [
+                { value: "", label: "" },
+                { value: "1", label: "Unlock" },
+                { value: "2", label: "Lock" },
+                { value: "3", label: "Unlatch" },
+                { value: "4", label: "Lock'n'go" },
+                { value: "5", label: "Lock'n'go with unlatch" },
+                { value: "6", label: "Full lock" },
+                // { value: "80", label: "Fob" },
+                // { value: "90", label: "Button" },
+              ],
+            },
+          ],
+        });
+      },
+    });
+  })();
+</script>

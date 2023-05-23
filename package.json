@@ -1,0 +1,23 @@
+{
+  "name": "@maelfr/node-red-nuki-mqtt",
+  "version": "0.0.1",
+  "description": "Control your Nuki device through MQTT",
+  "keywords": [
+    "node-red",
+    "nuki",
+    "mqtt"
+  ],
+  "license": "MIT",
+  "author": "Maël Bernero",
+  "repository": "MaelFr/node-red-nuki-mqtt",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "node-red": {
+    "version": ">=3.0.0",
+    "nodes": {
+      "nuki-mqtt-device": "device/device.js",
+      "nuki-mqtt-lock-action": "lock-action/lock-action.js"
+    }
+  }
+}

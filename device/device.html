@@ -1,0 +1,49 @@
+<script type="text/html" data-template-name="nuki-mqtt-device">
+  <div class="form-row">
+    <label for="node-config-input-name"
+      ><i class="fa fa-bookmark"></i>Name</label
+    >
+    <input type="text" id="node-config-input-name" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-id"><i class="fa fa-bookmark"></i>ID</label>
+    <input type="text" id="node-config-input-id" />
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-broker"
+      ><i class="fa fa-bookmark"></i>MQTT Broker</label
+    >
+    <input type="text" id="node-config-input-broker" />
+  </div>
+</script>
+
+<!-- prettier-ignore -->
+<script type="text/markdown" data-help-name="nuki-mqtt-device">
+A config node to define your Nuki device
+
+### Config
+
+: ID (string) : The Nuki ID in hexadecimal format is printed on the device itself and also shown in the device administration. e.g. 2BB28570.
+: MQTT Broker (mqtt-broker) : The MQTT broker to use.
+</script>
+
+<script type="text/javascript">
+  (function () {
+    RED.nodes.registerType("nuki-mqtt-device", {
+      category: "config",
+      paletteLabel: "Nuki MQTT Device",
+      defaults: {
+        id: { value: "" },
+        name: { value: "" },
+        broker: {
+          type: "mqtt-broker",
+          required: true,
+          label: RED._("node-red:mqtt.label.broker"),
+        },
+      },
+      label: function () {
+        return this.name || this.id || "nuki-mqtt-device";
+      },
+    });
+  })();
+</script>
