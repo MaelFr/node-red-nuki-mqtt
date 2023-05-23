@@ -1,0 +1,65 @@
+[
+    {
+        "id": "5f0adc66d222e610",
+        "type": "inject",
+        "z": "83f77dcd13d3d76e",
+        "name": "Inject empty message",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 280,
+        "wires": [
+            [
+                "261f2c86754546af"
+            ]
+        ]
+    },
+    {
+        "id": "261f2c86754546af",
+        "type": "nuki-mqtt-lock-action",
+        "z": "83f77dcd13d3d76e",
+        "name": "Unlock my Nuki device",
+        "device": "2BB28570",
+        "action": "1",
+        "x": 500,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "2BB28570",
+        "type": "nuki-mqtt-device",
+        "name": "My Nuki device",
+        "broker": "fe7e6333bdb83123"
+    },
+    {
+        "id": "fe7e6333bdb83123",
+        "type": "mqtt-broker",
+        "name": "My MQTT Server",
+        "broker": "192.168.1.2",
+        "port": "1883",
+        "clientid": "mqtt-client-id",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

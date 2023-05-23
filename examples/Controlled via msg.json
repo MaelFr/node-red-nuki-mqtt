@@ -1,0 +1,96 @@
+[
+    {
+        "id": "efd1c2524a4135fc",
+        "type": "inject",
+        "z": "83f77dcd13d3d76e",
+        "name": "Inject payload = LOCK",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "LOCK",
+        "payloadType": "str",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "76d9f836be9bb2dc"
+            ]
+        ]
+    },
+    {
+        "id": "3fa440d38a9ed206",
+        "type": "inject",
+        "z": "83f77dcd13d3d76e",
+        "name": "Inject payload = UNLOCK",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "UNLOCK",
+        "payloadType": "str",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "76d9f836be9bb2dc"
+            ]
+        ]
+    },
+    {
+        "id": "76d9f836be9bb2dc",
+        "type": "nuki-mqtt-lock-action",
+        "z": "83f77dcd13d3d76e",
+        "name": "Entrée",
+        "device": "2BB28570",
+        "action": "",
+        "x": 450,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2BB28570",
+        "type": "nuki-mqtt-device",
+        "name": "My Nuki device",
+        "broker": "fe7e6333bdb83123"
+    },
+    {
+        "id": "fe7e6333bdb83123",
+        "type": "mqtt-broker",
+        "name": "My MQTT Server",
+        "broker": "192.168.1.2",
+        "port": "1883",
+        "clientid": "mqtt-client-id",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]
