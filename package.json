@@ -16,7 +16,8 @@
   "node-red": {
     "nodes": {
       "nuki-mqtt-device": "device/device.js",
-      "nuki-mqtt-lock-action": "lock-action/lock-action.js"
+      "nuki-mqtt-lock-action": "lock-action/lock-action.js",
+      "nuki-mqtt-lock-event": "lock-event/lock-event.js"
     }
   },
   "publishConfig": {

@@ -1,0 +1,49 @@
+<script type="text/html" data-template-name="nuki-mqtt-lock-event">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-device"><i class="fa fa-tag"></i>Device</label>
+        <input type="text" id="node-input-device" placeholder="Device" />
+    </div>
+</script>
+
+<!-- prettier-ignore -->
+<script type="text/markdown" data-help-name="nuki-mqtt-lock-event">
+A node to receive events from your Nuki device through MQTT.
+</script>
+
+<script type="text/javascript">
+    (function () {
+        RED.nodes.registerType("nuki-mqtt-lock-event", {
+            category: "nuki",
+            paletteLabel: "MQTT Lock Event",
+            color: "#d8bfd8",
+            defaults: {
+                name: { value: "" },
+                device: { type: "nuki-mqtt-device", required: true },
+            },
+            inputs: 0,
+            outputs: 1,
+            icon: "bridge.svg",
+            label: function () {
+                return this.name || "Nuki MQTT Lock Event";
+            },
+            // oneditprepare: function () {
+            //     const device = $("#node-input-device");
+            //     const deviceInput = device.val();
+            //     const deviceNode = RED.nodes.node(deviceInput);
+            //     const deviceName = deviceNode ? deviceNode.name : "";
+            //     device.val(deviceName);
+            // },
+            // oneditsave: function () {
+            //     const device = $("#node-input-device");
+            //     const deviceInput = device.val();
+            //     const deviceNode = RED.nodes.node(deviceInput);
+            //     const deviceName = deviceNode ? deviceNode.name : "";
+            //     device.val(deviceName);
+            // },
+        });
+    })();
+</script>
